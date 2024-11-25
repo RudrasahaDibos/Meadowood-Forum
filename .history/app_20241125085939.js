@@ -10,7 +10,7 @@ const loadforum = async() =>{
          div.innerHTML =`
                                          <div class="avatar indicator">
                                         
-                                           <span class="indicator-item ml-16 mt-4  indicator-start badge badge-secondary">${items.isActive === false}</span>
+                                           <span class="indicator-item ml-16 mt-4  indicator-start badge badge-secondary">${items.isActive? items.isActive.classList.add('red'):"hidden"}</span>
                                         <div class="lg:h-20 lg:ml-2 lg:mt-3 lg:w-full lg:mx-auto lg:rounded-3xl rounded-full h-20 ">
                                           <img
                                             alt="Tailwind CSS examples"
@@ -74,7 +74,7 @@ const loadforum = async() =>{
     
     
   }
-  
+
 
   function setInnerText(id,value){
     document.getElementById(id).innerText = value
@@ -85,54 +85,4 @@ const loadforum = async() =>{
     const getValueint = parseInt(getvalueText)
     return getValueint
    }
-   const loadletest = async() =>{
-       const res = await fetch(' https://openapi.programming-hero.com/api/retro-forum/latest-posts')
-       const data = await res.json()
-    
-       const latestCard = document.getElementById('latest-card')
-       data.forEach(items => {
-        console.log(items)
-          const div = document.createElement('div')
-          div.classList =`card bg-base-100 w-96 shadow-xl`
-          div.innerHTML=`
-                             <figure class="px-10 pt-10">
-                            <img
-                              src="${items.cover_image}"
-                              alt=""
-                              class="rounded-xl" />
-                          </figure>
-                          
-                          <div class="card-body ">
-                          <h2 class="flex items-center  gap-4"><i class="fa-solid fa-calendar-days"></i>${items.author.posted_date || 'No publish date'}</h2>
-                            <h2 class="card-title">${items.title}</h2>
-                            <p>${items.description}</p>
-                            <div class="navbar bg-base-100">
-                    
-                    <div class="flex-none gap-2">
-                        <div class="dropdown dropdown-end">
-                            <div tabindex="0" role="button" class="btn btn-ghost btn-circle avatar">
-                              <div class="w-10 rounded-full">
-                                <img
-                                  alt="Tailwind CSS Navbar component"
-                                  src="${items.profile_image}" />
-                              </div>
-                            </div>
-                            
-                          </div>
-
-                           <div class="">
-                              <h2 class="text-2xl text-black font-bold">${items.author.name}</h2>  
-                              <span>${items.author.designation || "Unknown"}</span>
-                           </div>
-                     
-                    </div>
-                  </div>
-                          </div>
-          `
-          latestCard.appendChild(div)
-       });
-   }
-  
-
 loadforum()
-loadletest()

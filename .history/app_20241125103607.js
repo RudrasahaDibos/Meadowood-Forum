@@ -88,48 +88,25 @@ const loadforum = async() =>{
    const loadletest = async() =>{
        const res = await fetch(' https://openapi.programming-hero.com/api/retro-forum/latest-posts')
        const data = await res.json()
-    
        const latestCard = document.getElementById('latest-card')
        data.forEach(items => {
-        console.log(items)
           const div = document.createElement('div')
-          div.classList =`card bg-base-100 w-96 shadow-xl`
           div.innerHTML=`
-                             <figure class="px-10 pt-10">
+           <figure class="px-10 pt-10">
                             <img
-                              src="${items.cover_image}"
-                              alt=""
+                              src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp"
+                              alt="Shoes"
                               class="rounded-xl" />
                           </figure>
-                          
-                          <div class="card-body ">
-                          <h2 class="flex items-center  gap-4"><i class="fa-solid fa-calendar-days"></i>${items.author.posted_date || 'No publish date'}</h2>
-                            <h2 class="card-title">${items.title}</h2>
-                            <p>${items.description}</p>
-                            <div class="navbar bg-base-100">
-                    
-                    <div class="flex-none gap-2">
-                        <div class="dropdown dropdown-end">
-                            <div tabindex="0" role="button" class="btn btn-ghost btn-circle avatar">
-                              <div class="w-10 rounded-full">
-                                <img
-                                  alt="Tailwind CSS Navbar component"
-                                  src="${items.profile_image}" />
-                              </div>
+                          <div class="card-body items-center text-center">
+                            <h2 class="card-title">Shoes!</h2>
+                            <p>If a dog chews shoes whose shoes does he choose?</p>
+                            <div class="card-actions">
+                              <button class="btn btn-primary">Buy Now</button>
                             </div>
-                            
-                          </div>
-
-                           <div class="">
-                              <h2 class="text-2xl text-black font-bold">${items.author.name}</h2>  
-                              <span>${items.author.designation || "Unknown"}</span>
-                           </div>
-                     
-                    </div>
-                  </div>
                           </div>
           `
-          latestCard.appendChild(div)
+          
        });
    }
   

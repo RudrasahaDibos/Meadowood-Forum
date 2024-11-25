@@ -114,15 +114,15 @@ const loadforum = async() =>{
                               <div class="w-10 rounded-full">
                                 <img
                                   alt="Tailwind CSS Navbar component"
-                                  src="${items.profile_image}" />
+                                  src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp" />
                               </div>
                             </div>
                             
                           </div>
 
                            <div class="">
-                              <h2 class="text-2xl text-black font-bold">${items.author.name}</h2>  
-                              <span>${items.author.designation || "Unknown"}</span>
+                              <h2 class="text-2xl text-black font-bold">Dibos</h2>  
+                              <span>hhhh</span>
                            </div>
                      
                     </div>

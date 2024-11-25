@@ -122,7 +122,7 @@ const loadforum = async() =>{
 
                            <div class="">
                               <h2 class="text-2xl text-black font-bold">${items.author.name}</h2>  
-                              <span>${items.author.designation || "Unknown"}</span>
+                              <span>${}</span>
                            </div>
                      
                     </div>
