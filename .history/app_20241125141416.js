@@ -1,10 +1,8 @@
 const loadforum = async(categoryName) =>{
-   const loading = document.getElementById('loading-button')
-   loading.classList.remove('hidden')
     const res = await fetch('https://openapi.programming-hero.com/api/retro-forum/posts')
     const data =await res.json()
     const CardContainer = document.getElementById('card-conatiner')
-    loading.classList.add('hidden')
+
     data.posts.forEach(items => {
         console.log(items)
          const div = document.createElement('div')
@@ -35,7 +33,7 @@ const loadforum = async(categoryName) =>{
                                         <p class="flex justify-center items-center gap-2"><i class="fa-regular fa-compass"></i>${items.view_count}</p>
                                         </div>
                                         <div class=" bg-green-600 h-10 w-10 rounded-full">
-                                        <button onClick="handledetails('${items.title}','${items.view_count}')"><i class="fa-solid fa-envelope text-white flex justify-center items-center ml-3 mt-3"></i> </button>
+                                        <button onClick="handledetails('${items.title?"items.title":"none"}','${items.view_count}')"><i class="fa-solid fa-envelope text-white flex justify-center items-center ml-3 mt-3"></i> </button>
                                     
                                         </div>
                                     </div>

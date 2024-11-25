@@ -4,7 +4,7 @@ const loadforum = async(categoryName) =>{
     const res = await fetch('https://openapi.programming-hero.com/api/retro-forum/posts')
     const data =await res.json()
     const CardContainer = document.getElementById('card-conatiner')
-    loading.classList.add('hidden')
+    loading.classList.remove('hidden')
     data.posts.forEach(items => {
         console.log(items)
          const div = document.createElement('div')
